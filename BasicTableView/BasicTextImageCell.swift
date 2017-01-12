@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BasicTextImageCell: UITableViewCell {
+public class BasicTextImageCell: UITableViewCell {
     
     let cellLabel = UILabel()
     let cellImage = UIImageView()
@@ -48,7 +48,7 @@ class BasicTextImageCell: UITableViewCell {
         
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

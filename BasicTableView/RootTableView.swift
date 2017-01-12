@@ -9,12 +9,12 @@
 import UIKit
 
 /// A RootTableView to manage rows and section in a better way
-class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     private var sections: [Section]!
     var tableDelegate: RootTableViewDelegate?
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         
         self.delegate = self
@@ -26,47 +26,47 @@ class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         super.init(frame: frame, style: style)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     
     //MARK: Delegate methods
     //Section
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return self.sections[section].header
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return (self.sections[section].headerHeight == nil) ? UITableViewAutomaticDimension : sections[section].headerHeight!
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         return (self.sections[section].header == nil) ? UITableViewAutomaticDimension : 10
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return self.sections.count
     }
     
     //Row
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return self.sections[indexPath.section].rows[indexPath.row].cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (self.sections[indexPath.section].rows[indexPath.row].height == nil) ? UITableViewAutomaticDimension : self.sections[indexPath.section].rows[indexPath.row].height!
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sections[section].rows.count
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableDelegate?.RootTableViewSelected(row: self.sections[indexPath.section].rows[indexPath.row].cell, at: indexPath)
     }
     

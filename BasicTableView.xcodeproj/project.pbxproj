@@ -12,12 +12,12 @@
 		30CFD83A1E27955D0097048D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFD8351E27955D0097048D /* ViewController.swift */; };
 		30CFD83F1E2795690097048D /* BasicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFD83B1E2795690097048D /* BasicTableView.swift */; };
 		30CFD8421E2795690097048D /* RootTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFD83E1E2795690097048D /* RootTableView.swift */; };
-		30CFD8461E2795DD0097048D /* BasicTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFD8431E2795DD0097048D /* BasicTextCell.swift */; };
-		30CFD8471E2795DD0097048D /* BasicTextImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFD8441E2795DD0097048D /* BasicTextImageCell.swift */; };
-		30CFD8481E2795DD0097048D /* BasicTextSubtitleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFD8451E2795DD0097048D /* BasicTextSubtitleImage.swift */; };
-		30CFD84A1E2795E90097048D /* BasicTextHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFD8491E2795E90097048D /* BasicTextHeader.swift */; };
 		30CFD84F1E2796190097048D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CFD84B1E2796190097048D /* LaunchScreen.storyboard */; };
 		30CFD8501E2796190097048D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CFD84D1E2796190097048D /* Main.storyboard */; };
+		30CFD8591E2798330097048D /* BasicTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFD8561E2798330097048D /* BasicTextCell.swift */; };
+		30CFD85A1E2798330097048D /* BasicTextImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFD8571E2798330097048D /* BasicTextImageCell.swift */; };
+		30CFD85B1E2798330097048D /* BasicTextSubtitleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFD8581E2798330097048D /* BasicTextSubtitleImage.swift */; };
+		30CFD85D1E27983B0097048D /* BasicTextHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFD85C1E27983B0097048D /* BasicTextHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +28,12 @@
 		30CFD8351E27955D0097048D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = BasicTableViewDemo/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		30CFD83B1E2795690097048D /* BasicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTableView.swift; path = BasicTableView/BasicTableView.swift; sourceTree = SOURCE_ROOT; };
 		30CFD83E1E2795690097048D /* RootTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootTableView.swift; path = BasicTableView/RootTableView.swift; sourceTree = SOURCE_ROOT; };
-		30CFD8431E2795DD0097048D /* BasicTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTextCell.swift; path = BasicTableView/Cells/BasicTextCell.swift; sourceTree = SOURCE_ROOT; };
-		30CFD8441E2795DD0097048D /* BasicTextImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTextImageCell.swift; path = BasicTableView/Cells/BasicTextImageCell.swift; sourceTree = SOURCE_ROOT; };
-		30CFD8451E2795DD0097048D /* BasicTextSubtitleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTextSubtitleImage.swift; path = BasicTableView/Cells/BasicTextSubtitleImage.swift; sourceTree = SOURCE_ROOT; };
-		30CFD8491E2795E90097048D /* BasicTextHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTextHeader.swift; path = BasicTableView/Headers/BasicTextHeader.swift; sourceTree = SOURCE_ROOT; };
 		30CFD84C1E2796190097048D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BasicTableViewDemo/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		30CFD84E1E2796190097048D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BasicTableViewDemo/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		30CFD8561E2798330097048D /* BasicTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTextCell.swift; path = BasicTableView/BasicTextCell.swift; sourceTree = SOURCE_ROOT; };
+		30CFD8571E2798330097048D /* BasicTextImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTextImageCell.swift; path = BasicTableView/BasicTextImageCell.swift; sourceTree = SOURCE_ROOT; };
+		30CFD8581E2798330097048D /* BasicTextSubtitleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTextSubtitleImage.swift; path = BasicTableView/BasicTextSubtitleImage.swift; sourceTree = SOURCE_ROOT; };
+		30CFD85C1E27983B0097048D /* BasicTextHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTextHeader.swift; path = BasicTableView/BasicTextHeader.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +88,9 @@
 		30CFD8521E27963E0097048D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				30CFD8431E2795DD0097048D /* BasicTextCell.swift */,
-				30CFD8441E2795DD0097048D /* BasicTextImageCell.swift */,
-				30CFD8451E2795DD0097048D /* BasicTextSubtitleImage.swift */,
+				30CFD8561E2798330097048D /* BasicTextCell.swift */,
+				30CFD8571E2798330097048D /* BasicTextImageCell.swift */,
+				30CFD8581E2798330097048D /* BasicTextSubtitleImage.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -98,7 +98,7 @@
 		30CFD8531E2796420097048D /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				30CFD8491E2795E90097048D /* BasicTextHeader.swift */,
+				30CFD85C1E27983B0097048D /* BasicTextHeader.swift */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -197,12 +197,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30CFD84A1E2795E90097048D /* BasicTextHeader.swift in Sources */,
+				30CFD85D1E27983B0097048D /* BasicTextHeader.swift in Sources */,
+				30CFD8591E2798330097048D /* BasicTextCell.swift in Sources */,
 				30CFD83A1E27955D0097048D /* ViewController.swift in Sources */,
-				30CFD8481E2795DD0097048D /* BasicTextSubtitleImage.swift in Sources */,
-				30CFD8461E2795DD0097048D /* BasicTextCell.swift in Sources */,
 				30CFD8421E2795690097048D /* RootTableView.swift in Sources */,
-				30CFD8471E2795DD0097048D /* BasicTextImageCell.swift in Sources */,
+				30CFD85A1E2798330097048D /* BasicTextImageCell.swift in Sources */,
+				30CFD85B1E2798330097048D /* BasicTextSubtitleImage.swift in Sources */,
 				30CFD83F1E2795690097048D /* BasicTableView.swift in Sources */,
 				30CFD8361E27955D0097048D /* AppDelegate.swift in Sources */,
 			);

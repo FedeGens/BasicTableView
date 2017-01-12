@@ -8,9 +8,9 @@
 
 import UIKit
 
-class BasicTableView: RootTableView {
+public class BasicTableView: RootTableView {
         
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         registerCells()
     }
@@ -23,7 +23,7 @@ class BasicTableView: RootTableView {
     
     
     //MARK: create and add basic Header
-    func addBasicHeader(withType type: BasicHeaderType, inSection section: Int, withTitle title: String, backgroundColor color: UIColor?, withHeight height: CGFloat?) {
+    public func addBasicHeader(withType type: BasicHeaderType, inSection section: Int, withTitle title: String, backgroundColor color: UIColor?, withHeight height: CGFloat?) {
         var view = UIView()
         switch type {
         case .text:
@@ -34,7 +34,7 @@ class BasicTableView: RootTableView {
     
     
     //MARK: create and add basic Cell
-    func addBasicCell(withType type: BasicCellType, inSection section: Int, atIndex index: Int?, withTitle title: String?, withSubtitle subtitle: String?, withImage image: UIImage?) {
+    public func addBasicCell(withType type: BasicCellType, inSection section: Int, atIndex index: Int?, withTitle title: String?, withSubtitle subtitle: String?, withImage image: UIImage?) {
         var cell = UITableViewCell()
         switch type {
         case .text:
@@ -50,7 +50,7 @@ class BasicTableView: RootTableView {
     
     
     //MARK: Create BasicText Cell
-    func createBasicTextCell(withString text: String?) -> BasicTextCell {
+    public func createBasicTextCell(withString text: String?) -> BasicTextCell {
         let cell = self.dequeueReusableCell(withIdentifier: BasicCellType.text.rawValue) as! BasicTextCell
         if let myText = text {
             cell.set(text: myText)
@@ -58,13 +58,13 @@ class BasicTableView: RootTableView {
         return cell
     }
     
-    func createBasicTextCell() -> BasicTextCell {
+    public func createBasicTextCell() -> BasicTextCell {
         return self.dequeueReusableCell(withIdentifier: BasicCellType.text.rawValue) as! BasicTextCell
     }
     
     
     //MARK: Create BasicTextImage Cell
-    func createBasicTextImageCell(withString text: String?, image: UIImage?) -> BasicTextImageCell {
+    public func createBasicTextImageCell(withString text: String?, image: UIImage?) -> BasicTextImageCell {
         let cell = self.dequeueReusableCell(withIdentifier: BasicCellType.textImage.rawValue) as! BasicTextImageCell
         if let myText = text {
             cell.set(text: myText)
@@ -75,13 +75,13 @@ class BasicTableView: RootTableView {
         return cell
     }
     
-    func createBasicTextImageCell() -> BasicTextImageCell {
+    public func createBasicTextImageCell() -> BasicTextImageCell {
         return self.dequeueReusableCell(withIdentifier: BasicCellType.textImage.rawValue) as! BasicTextImageCell
     }
     
     
     //MARK: Create BasicTextSubtitleImage Cell
-    func createBasicTextSubtitleImageCell(withTitle title: String?, withSubtitle subtitle: String?, image: UIImage?) -> BasicTextSubtitleImageCell {
+    public func createBasicTextSubtitleImageCell(withTitle title: String?, withSubtitle subtitle: String?, image: UIImage?) -> BasicTextSubtitleImageCell {
         let cell = self.dequeueReusableCell(withIdentifier: BasicCellType.textSubtitleImage.rawValue) as! BasicTextSubtitleImageCell
         if let myText = title {
             cell.set(titleText: myText)
@@ -95,19 +95,19 @@ class BasicTableView: RootTableView {
         return cell
     }
     
-    func createBasicTextSubtitleImageCell() -> BasicTextSubtitleImageCell {
+    public func createBasicTextSubtitleImageCell() -> BasicTextSubtitleImageCell {
         return self.dequeueReusableCell(withIdentifier: BasicCellType.textSubtitleImage.rawValue) as! BasicTextSubtitleImageCell
     }
 
 }
 
 
-enum BasicCellType: String {
+public enum BasicCellType: String {
     case text = "BASIC_CELL_TEXT"
     case textImage = "BASIC_CELL_TEXT_IMAGE"
     case textSubtitleImage = "BASIC_CELL_TEXT_SUBTITLE_IMAGE"
 }
 
-enum BasicHeaderType {
+public enum BasicHeaderType {
     case text
 }

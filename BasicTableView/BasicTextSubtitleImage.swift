@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BasicTextSubtitleImageCell: UITableViewCell {
+public class BasicTextSubtitleImageCell: UITableViewCell {
     
     let cellTitleLabel = UILabel()
     let cellSubtitleLabel = UILabel()
@@ -62,7 +62,7 @@ class BasicTextSubtitleImageCell: UITableViewCell {
         self.contentView.addConstraint(NSLayoutConstraint(item: cellSubtitleLabel, attribute: .bottom, relatedBy: .lessThanOrEqual, toItem: self.contentView, attribute: .bottom, multiplier: 1.0, constant: -8))
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

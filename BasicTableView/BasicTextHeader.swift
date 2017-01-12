@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BasicTextHeader: UIView {
+public class BasicTextHeader: UIView {
     
     let headerLabel = UILabel()
     let backGroundToolbar = UIToolbar()
@@ -57,7 +57,7 @@ class BasicTextHeader: UIView {
         
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

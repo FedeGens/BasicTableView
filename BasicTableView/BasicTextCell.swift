@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BasicTextCell: UITableViewCell {
+public class BasicTextCell: UITableViewCell {
     
     let cellLabel = UILabel()
     
@@ -30,7 +30,7 @@ class BasicTextCell: UITableViewCell {
         self.contentView.addConstraint(NSLayoutConstraint(item: cellLabel, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: -8))
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
