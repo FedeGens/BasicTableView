@@ -12,7 +12,7 @@ import UIKit
 public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     private var sections: [Section]!
-    var tableDelegate: RootTableViewDelegate?
+    public var tableDelegate: RootTableViewDelegate?
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -77,7 +77,7 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     /// - Parameters:
     ///   - view: header view (optional)
     ///   - rows: rows array (optional)
-    func addSection(view: UIView?, rows: [UITableViewCell]?) {
+    public func addSection(view: UIView?, rows: [UITableViewCell]?) {
         var section = Section()
         section.set(cells: rows)
         section.header = view
@@ -91,7 +91,7 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     ///   - view: header view (optional)
     ///   - atIndex: section index
     ///   - forHeight: header height (optional)
-    func setSectionHeader(view: UIView?, atIndex: Int, forHeight: CGFloat?) {
+    public func setSectionHeader(view: UIView?, atIndex: Int, forHeight: CGFloat?) {
         self.sections[atIndex].header = view
         self.sections[atIndex].headerHeight = forHeight
         self.reloadData()
@@ -102,7 +102,7 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     /// - Parameters:
     ///   - atIndex: section index
     ///   - forHeight: section height
-    func setSectionHeaderHeight(atIndex: Int, forHeight: CGFloat?) {
+    public func setSectionHeaderHeight(atIndex: Int, forHeight: CGFloat?) {
         self.sections[atIndex].headerHeight = forHeight
         self.reloadData()
     }
@@ -110,7 +110,7 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     /// Remove a section header in a specific index
     ///
     /// - Parameter atIndex: section index
-    func removeSectionHeader(atIndex: Int) {
+    public func removeSectionHeader(atIndex: Int) {
         self.sections[atIndex].header = nil
         self.reloadData()
     }
@@ -118,7 +118,7 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     /// Remove a section at a specific indexx
     ///
     /// - Parameter atIndex: section index
-    func removeSection(atIndex: Int) {
+    public func removeSection(atIndex: Int) {
         self.sections.remove(at: atIndex)
         self.reloadData()
     }
@@ -128,7 +128,7 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     /// Set all tableView cells as a bidimensional array. It creates a Section for every sub-array
     ///
     /// - Parameter cellsMatrix: bi-dimensional array formed by cells
-    func setAllCells(cellsMatrix: [[UITableViewCell]]) {
+    public func setAllCells(cellsMatrix: [[UITableViewCell]]) {
         self.sections.removeAll()
         for cells in cellsMatrix {
             var section = Section()
@@ -143,7 +143,7 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     /// - Parameters:
     ///   - cell: cell to add
     ///   - inSection: section index
-    func add(cell: UITableViewCell, inSection: Int) {
+    public func add(cell: UITableViewCell, inSection: Int) {
         add(cell: cell, inSection: inSection, atIndex: nil, forHeight: nil)
     }
     
@@ -153,7 +153,7 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     ///   - cell: cell to add
     ///   - inSection: section index
     ///   - atIndex: cell index
-    func add(cell: UITableViewCell, inSection: Int, atIndex: Int?) {
+    public func add(cell: UITableViewCell, inSection: Int, atIndex: Int?) {
         add(cell: cell, inSection: inSection, atIndex: atIndex, forHeight: nil)
     }
     
@@ -164,7 +164,7 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     ///   - inSection: section index
     ///   - atIndex: cell index
     ///   - forHeight: cell height
-    func add(cell: UITableViewCell, inSection: Int, atIndex: Int?, forHeight: CGFloat?) {
+    public func add(cell: UITableViewCell, inSection: Int, atIndex: Int?, forHeight: CGFloat?) {
         if sections.count == 0 {
             let section = Section()
             sections.append(section)
@@ -179,7 +179,7 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     ///   - height: cell's height
     ///   - inSection: section index
     ///   - atIndex: cell index
-    func setCell(height: CGFloat, inSection: Int, atIndex: Int) {
+    public func setCell(height: CGFloat, inSection: Int, atIndex: Int) {
         sections[inSection].rows[atIndex].height = height
         self.reloadData()
     }
@@ -189,7 +189,7 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     /// - Parameters:
     ///   - inSection: section index
     ///   - atIndex: cell index
-    func removeCell(inSection: Int, atIndex: Int) {
+    public func removeCell(inSection: Int, atIndex: Int) {
         sections[inSection].rows.remove(at: atIndex)
         self.reloadData()
     }
@@ -197,7 +197,7 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     /// Remove all cells in a section
     ///
     /// - Parameter inSection: section index
-    func removeAllCells(inSection: Int) {
+    public func removeAllCells(inSection: Int) {
         sections[inSection].rows.removeAll()
         self.reloadData()
     }
@@ -243,7 +243,7 @@ struct Row {
 
 
 //MARK: Protocol
-protocol RootTableViewDelegate {
+public protocol RootTableViewDelegate {
     /// Returns a cell and an index when a row is tapped
     ///
     /// - Parameters:
