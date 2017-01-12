@@ -70,6 +70,17 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
         self.tableDelegate?.RootTableViewSelected(row: self.sections[indexPath.section].rows[indexPath.row].cell, at: indexPath)
     }
     
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let  height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height {
+            if (self.tableDelegate?.RootTableViewLoadOtherCells?() != nil) {
+                self.tableDelegate?.RootTableViewLoadOtherCells!()
+            }
+        }
+    }
+    
     
     //MARK: Manage Section methods
     /// Add a section to your tableView
@@ -243,11 +254,14 @@ struct Row {
 
 
 //MARK: Protocol
-public protocol RootTableViewDelegate {
+@objc public protocol RootTableViewDelegate {
     /// Returns a cell and an index when a row is tapped
     ///
     /// - Parameters:
     ///   - row: returned cell
     ///   - Index: returned index
     func RootTableViewSelected(row: UITableViewCell, at Index: IndexPath)
+    
+    /// Called when the tableView reach the bottom. Useful to load new cells
+    @objc optional func RootTableViewLoadOtherCells()
 }
