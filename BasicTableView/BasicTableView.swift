@@ -9,7 +9,7 @@
 import UIKit
 
 public class BasicTableView: RootTableView {
-        
+    
     override public func awakeFromNib() {
         super.awakeFromNib()
         registerCells()
@@ -98,7 +98,7 @@ public class BasicTableView: RootTableView {
     public func createBasicTextSubtitleImageCell() -> BasicTextSubtitleImageCell {
         return self.dequeueReusableCell(withIdentifier: BasicCellType.textSubtitleImage.rawValue) as! BasicTextSubtitleImageCell
     }
-
+    
 }
 
 

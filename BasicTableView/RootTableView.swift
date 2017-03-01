@@ -11,7 +11,7 @@ import UIKit
 /// A RootTableView to manage rows and section in a better way
 public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
-    private var sections: [Section]!
+    private var sections = [Section]()
     public var tableDelegate: RootTableViewDelegate?
     
     override public func awakeFromNib() {
@@ -19,7 +19,6 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
         
         self.delegate = self
         self.dataSource = self
-        sections = [Section]()
     }
     
     override init(frame: CGRect, style: UITableViewStyle) {
@@ -212,7 +211,7 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
         sections[inSection].rows.removeAll()
         self.reloadData()
     }
-
+    
 }
 
 
