@@ -69,6 +69,10 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
         self.tableDelegate?.RootTableViewSelected(row: self.sections[indexPath.section].rows[indexPath.row].cell, at: indexPath)
     }
     
+    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+    
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let  height = scrollView.frame.size.height
         let contentYoffset = scrollView.contentOffset.y
@@ -80,6 +84,17 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
         }
     }
     
+    public func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        print("move")
+    }
     
     //MARK: Manage Section methods
     /// Add a section to your tableView
