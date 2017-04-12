@@ -93,7 +93,9 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     }
     
     public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        print("move")
+        let elem = sections[sourceIndexPath.section].rows[sourceIndexPath.row]
+        sections[sourceIndexPath.section].rows.remove(at: sourceIndexPath.row)
+        sections[destinationIndexPath.section].rows.insert(elem, at: destinationIndexPath.row)
     }
     
     //MARK: Manage Section methods
@@ -227,6 +229,13 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
         self.reloadData()
     }
     
+    public func getAllCells(inSection section: Int) -> [UITableViewCell] {
+        var cellArr = [UITableViewCell]()
+        for row in sections[section].rows {
+            cellArr.append(row.cell)
+        }
+        return cellArr
+    }
 }
 
 
