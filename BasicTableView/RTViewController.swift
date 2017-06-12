@@ -11,7 +11,7 @@ import UIKit
 public class RTViewController: UIViewController {
     var table: RootTableView!
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override public func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         table.cancelOperation()
     }
