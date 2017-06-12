@@ -34,6 +34,7 @@
 		30CFD8571E2798330097048D /* BasicTextImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTextImageCell.swift; path = BasicTableView/BasicTextImageCell.swift; sourceTree = SOURCE_ROOT; };
 		30CFD8581E2798330097048D /* BasicTextSubtitleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTextSubtitleImage.swift; path = BasicTableView/BasicTextSubtitleImage.swift; sourceTree = SOURCE_ROOT; };
 		30CFD85C1E27983B0097048D /* BasicTextHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTextHeader.swift; path = BasicTableView/BasicTextHeader.swift; sourceTree = SOURCE_ROOT; };
+		30FAF40D1EEE78A0006869FB /* RTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RTViewController.swift; path = BasicTableView/RTViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +111,7 @@
 				30CFD8531E2796420097048D /* Headers */,
 				30CFD83B1E2795690097048D /* BasicTableView.swift */,
 				30CFD83E1E2795690097048D /* RootTableView.swift */,
+				30FAF40D1EEE78A0006869FB /* RTViewController.swift */,
 			);
 			name = BasicTableView;
 			sourceTree = "<group>";

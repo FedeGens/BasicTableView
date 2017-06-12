@@ -11,8 +11,17 @@ import UIKit
 /// A RootTableView to manage rows and section in a better way
 public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
+    public weak var tableDelegate: RootTableViewDelegate?
+    
     private var sections = [Section]()
-    public var tableDelegate: RootTableViewDelegate?
+    
+    //async tableViewTasks
+    private var tableViewQueue = OperationQueue()
+    public var asyncComputingBlock : (() -> ())! {
+        didSet {
+            executeAsyncComputingBlock()
+        }
+    }
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +37,6 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
     
     //MARK: Delegate methods
     //Section
@@ -197,7 +205,33 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
             sections.append(section)
         }
         sections[inSection].add(cell: cell, atIndex: atIndex, forHeight: forHeight)
+        
         self.reloadData()
+    }
+    
+    
+    public func addAsync(cell: UITableViewCell, inSection: Int, atIndex: Int?, forHeight: CGFloat?) {
+        if sections.count == 0 {
+            let section = Section()
+            sections.append(section)
+        }
+        sections[inSection].add(cell: cell, atIndex: atIndex, forHeight: forHeight)
+        
+        DispatchQueue.main.sync { [weak self] in
+            guard let tv = self else {
+                return
+            }
+            if tv.numberOfSections <= inSection {
+                tv.reloadData()
+                return
+            }
+            
+            tv.beginUpdates()
+            tv.insertRows(at: [IndexPath.init(row: (atIndex == nil) ? tv.sections[inSection].rows.count-1 : atIndex!, section: inSection)], with: .none)
+            tv.endUpdates()
+            
+            UIView.setAnimationsEnabled(true)
+        }
     }
     
     /// Set cell's height ina a section at a specific index
@@ -236,11 +270,26 @@ public class RootTableView: UITableView, UITableViewDelegate, UITableViewDataSou
         }
         return cellArr
     }
+    
+    ////MARK: Async block methods
+    private func executeAsyncComputingBlock() {
+        let op = RootTableViewOperation()
+        op.myFunc = asyncComputingBlock
+        tableViewQueue.addOperation(op)
+    }
+    
+    internal func cancelOperation() {
+        tableViewQueue.cancelAllOperations()
+    }
+    
+    deinit {
+        tableViewQueue.cancelAllOperations()
+    }
 }
 
 
 //MARK: Models
-struct Section {
+internal struct Section {
     var header: UIView? = nil
     var headerHeight: CGFloat? = nil
     var rows = [Row]()
@@ -270,7 +319,7 @@ struct Section {
     }
 }
 
-struct Row {
+internal struct Row {
     var cell = UITableViewCell()
     var height: CGFloat? = nil
 }
@@ -288,3 +337,16 @@ struct Row {
     /// Called when the tableView reach the bottom. Useful to load new cells
     @objc optional func RootTableViewLoadOtherCells()
 }
+
+
+//MARK: Operation
+internal class RootTableViewOperation: Operation {
+    var myFunc: (() -> ())!
+    
+    override public func main() {
+        if !isCancelled {
+            myFunc()
+        }
+    }
+}
+
